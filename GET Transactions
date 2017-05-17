@@ -4,7 +4,7 @@ urls = ("/", "index")
 
 class index:
     def GET(self):
-        db = web.database(dbn='sqlite', db='insider_transactions')
+        db = web.database(dbn='sqlite', db='insider_transactions.db')
         return db.select('relevant_transactions')
 
 if __name__ == "__main__": 
