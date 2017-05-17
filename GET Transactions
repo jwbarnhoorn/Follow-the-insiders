@@ -1,0 +1,13 @@
+import web
+
+urls = ("/", "index")
+
+class index:
+    def GET(self):
+        db = web.database(dbn='sqlite', db='insider_transactions')
+        return db.select('relevant_transactions')
+
+if __name__ == "__main__": 
+    app = web.application(urls, globals())
+    app.run()
+    
