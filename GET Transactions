@@ -1,13 +1,15 @@
 import web
+import json
 
 urls = ("/", "index")
 
 class index:
     def GET(self):
         db = web.database(dbn='sqlite', db='insider_transactions.db')
-        return db.select('relevant_transactions')
+        transactions = db.select('relevant_transactions')
+        return json.dumps(transactions)
 
 if __name__ == "__main__": 
     app = web.application(urls, globals())
-    app.run()
-    
+    app.run() 
+
