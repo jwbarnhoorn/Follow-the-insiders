@@ -1,15 +1,23 @@
 import web
 import json
 
-urls = ("/", "index")
+urls = (
+        "/", "index",
+       "/transactions/", "transactions")
+
+app = web.application(urls, globals(), True)
+render = web.template.render('D:\Entrepreneurship\Follow the insiders\Website')
 
 class index:
     def GET(self):
+        return render.index()
+
+class transactions:
+    def GET(self):
         db = web.database(dbn='sqlite', db='insider_transactions.db')
-        transactions = db.select('relevant_transactions')
+        transactions = db.select('relevant_transactions')                       
         return json.dumps(transactions)
 
 if __name__ == "__main__": 
-    app = web.application(urls, globals())
     app.run() 
-
+  
