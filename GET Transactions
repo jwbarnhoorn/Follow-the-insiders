@@ -16,7 +16,7 @@ class transactions:
     def GET(self):
         db = web.database(dbn='sqlite', db='insider_transactions.db')
         transactions = db.select('relevant_transactions')                       
-        return json.dumps(transactions)
+        return json.dumps(transactions.values())
 
 if __name__ == "__main__": 
     app.run() 
