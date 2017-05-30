@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import locale
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'German_Germany.1252') #find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
+locale.setlocale(locale.LC_ALL,'de_DE') #find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
 
 #Open DB connection
 conn = sqlite3.connect('insider_transactions.db', timeout=10)
@@ -102,11 +102,7 @@ for link in New_links:
     else:
         Aantal_effecten = int(Totale_waarde/Waarde_per_aandeel)    
     
-    print(Totale_waarde)
-    print(Transaction)
-    print(Soort_effect)
-    print(" ")
-    
+   
     #Check whether insider transaction conditions are met and if so store in database
     if Totale_waarde > 10000 and \
         Transaction == "Kauf" and \
