@@ -7,7 +7,7 @@ urls = (
        "/transactions/", "transactions")
 
 app = web.application(urls, globals(), True)
-render = web.template.render('D:\Entrepreneurship\Follow the insiders\Website')
+render = web.template.render('.')
 
 class index:
     def GET(self):
