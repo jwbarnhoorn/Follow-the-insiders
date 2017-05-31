@@ -6,6 +6,8 @@ urls = (
         "/", "index",
        "/transactions/", "transactions")
 
+render = web.template.render('.')
+
 class index:
     def GET(self):
         return render.index()
@@ -23,5 +25,4 @@ class transactions:
 
 if __name__ == "__main__": 
     app = web.application(urls, globals(), True)
-    render = web.template.render('.')
     app.run() 
