@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup   
-from urllib.request import urlopen
+from urllib2 import urlopen
 import sqlite3
 from datetime import datetime, timedelta
 import locale
