@@ -70,7 +70,7 @@ for link in New_links:
     Soort_effect = soup.find('span', text='Soort financieel instrument').findNext('span').getText()
     Waarde_per_aandeel = soup.find('span', text='Prijs').findNext('span').getText()
     Waarde_per_aandeel.strip()
-    Waarde_per_aandeel = float(Waarde_per_aandeel.replace('.','')replace(',','.'))
+    Waarde_per_aandeel = float(Waarde_per_aandeel.replace('.','').replace(',','.'))
     Aantal_effecten = soup.find('span', text='Aantal financiële instrumenten').findNext('span').getText()
     Aantal_effecten.strip()
     Aantal_effecten = float(Aantal_effecten.replace(',','.'))
