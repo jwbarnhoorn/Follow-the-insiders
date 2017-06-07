@@ -6,7 +6,7 @@ urls = (
         "/", "index",
        "/transactions/", "transactions")
 
-render = web.template.render('/src/')
+render = web.template.render('src/index.html')
 
 class index:
     def GET(self):
