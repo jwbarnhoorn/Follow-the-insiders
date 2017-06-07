@@ -5,21 +5,20 @@ import { HttpModule } from '@angular/http';
 import {routing} from './app.routing';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
+import * as $ from 'jquery';
+import { MaterializeModule } from 'angular2-materialize';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    AboutComponent,
-    ContactComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
