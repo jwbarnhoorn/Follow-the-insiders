@@ -8,7 +8,7 @@
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-  <link rel="stylesheet" href="src/assets/style.scss">
+  <link rel="stylesheet" href="./static/style.css">
 
   <!-- Compiled and minified JavaScript -->
   <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
@@ -20,11 +20,10 @@
     <nav>
       <div class="nav-wrapper">
         <a class="brand-logo">
-          <img class="logo" style="width: auto; height: 50px;" src="src/assets/logo.png" />
-          <img class="logo" style="height: 50px;" src="src/assets/logo-text.svg" /></a>
+          <img class="logo" style="width: auto; height: 50px;" src="./static/logo.png" />
+          <img class="logo" style="height: 50px;" src="./static/logo-text.svg" /></a>
       </div>
     </nav>
-
     <div class="row">
       <h4 class="center">Find your next investment idea right here!</h4>
     </div>
@@ -63,129 +62,485 @@
     <div class="row">
       <div class="col s10 offset-s1">
         <h5 class="center">Insider trades for the past 30days</h5>
-        <table class="highlight responsive-table">
-							<thead>
-								<tr>
-									<th>Filing date</th>
-									<th>Name</th>
-									<th>Issuer</th>
-									<th>Security type</th>
-									<th>Total value</th>
-									<th>Currency</th>
-									<th>Country</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>09-05-2017</td>
-									<td>Pietje</td>
-									<td>Heineken</td>
-									<td>Normal stock</td>
-									<td>400</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>05-05-2017</td>
-									<td>Karel</td>
-									<td>Unilever</td>
-									<td>Certificate of stock</td>
-									<td>29000</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>01-05-2017</td>
-									<td>Olivier</td>
-									<td>Akzo Nobel</td>
-									<td>Class C Stock</td>
-									<td>10</td>
-									<td>USD</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>09-05-2017</td>
-									<td>Pietje</td>
-									<td>Heineken</td>
-									<td>Normal stock</td>
-									<td>400</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>05-05-2017</td>
-									<td>Karel</td>
-									<td>Unilever</td>
-									<td>Certificate of stock</td>
-									<td>29000</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>01-05-2017</td>
-									<td>Olivier</td>
-									<td>Akzo Nobel</td>
-									<td>Class C Stock</td>
-									<td>10</td>
-									<td>USD</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>09-05-2017</td>
-									<td>Pietje</td>
-									<td>Heineken</td>
-									<td>Normal stock</td>
-									<td>400</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>05-05-2017</td>
-									<td>Karel</td>
-									<td>Unilever</td>
-									<td>Certificate of stock</td>
-									<td>29000</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>01-05-2017</td>
-									<td>Olivier</td>
-									<td>Akzo Nobel</td>
-									<td>Class C Stock</td>
-									<td>10</td>
-									<td>USD</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>09-05-2017</td>
-									<td>Pietje</td>
-									<td>Heineken</td>
-									<td>Normal stock</td>
-									<td>400</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>05-05-2017</td>
-									<td>Karel</td>
-									<td>Unilever</td>
-									<td>Certificate of stock</td>
-									<td>29000</td>
-									<td>EUR</td>
-									<td>Netherlands</td>
-								</tr>
-								<tr>
-									<td>01-05-2017</td>
-									<td>Olivier</td>
-									<td>Akzo Nobel</td>
-									<td>Class C Stock</td>
-									<td>10</td>
-									<td>USD</td>
-									<td>Netherlands</td>
-								</tr>
-							</tbody>
-						</table>  
+        <table class="highlight striped">
+				<thead>
+					<tr>
+						<th>Total_value</th>
+						<th>Country</th>
+						<th>Security_amount</th>
+						<th>Security_type</th>
+						<th>Insider_name</th>
+						<th>Filing_date</th>
+						<th>Price_security</th>
+						<th>Currency</th>
+						<th>Issuer</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>97090.40000000001</td>
+						<td>Netherlands</td>
+						<td>4114</td>
+						<td>Gewoon aandeel</td>
+						<td>J.H.M.  Hommen</td>
+						<td>2017-05-15 00:00:00</td>
+						<td>23.6</td>
+						<td>EUR</td>
+						<td>Koninklijke VolkerWessels N.V.</td>
+					</tr>
+					<tr>
+						<td>615.6</td>
+						<td>Belgium</td>
+						<td>8</td>
+						<td>Aandeel</td>
+						<td>Kola Ismail</td>
+						<td>2017-05-15 00:00:00</td>
+						<td>76.95</td>
+						<td>EUR</td>
+						<td>UCB</td>
+					</tr>
+					<tr>
+						<td>923.4000000000001</td>
+						<td>Belgium</td>
+						<td>12</td>
+						<td>Aandeel</td>
+						<td>Kola Ismail</td>
+						<td>2017-05-15 00:00:00</td>
+						<td>76.95</td>
+						<td>EUR</td>
+						<td>UCB</td>
+					</tr>
+					<tr>
+						<td>1154.25</td>
+						<td>Belgium</td>
+						<td>15</td>
+						<td>Aandeel</td>
+						<td>Kola Ismail</td>
+						<td>2017-05-15 00:00:00</td>
+						<td>76.95</td>
+						<td>EUR</td>
+						<td>UCB</td>
+					</tr>
+					<tr>
+						<td>2552.55</td>
+						<td>Belgium</td>
+						<td>663</td>
+						<td>Aandeel</td>
+						<td>Benaruca SA</td>
+						<td>2017-05-17 00:00:00</td>
+						<td>3.85</td>
+						<td>EUR</td>
+						<td>BIOCARTIS</td>
+					</tr>
+					<tr>
+						<td>533.43375</td>
+						<td>Belgium</td>
+						<td>36.165</td>
+						<td>Aandeel</td>
+						<td>Roesch Jean-Philippe</td>
+						<td>2017-05-15 00:00:00</td>
+						<td>14.75</td>
+						<td>EUR</td>
+						<td>ECONOCOM GROUP</td>
+					</tr>
+					<tr>
+						<td>11800</td>
+						<td>Germany</td>
+						<td>5000</td>
+						<td>Aktie</td>
+						<td>Georg Issels</td>
+						<td>2017-05-22 15:01:46.391373</td>
+						<td>2.36</td>
+						<td>EUR</td>
+						<td>Scherzer & Co. Aktiengesellschaft</td>
+					</tr>
+					<tr>
+						<td>66000</td>
+						<td>Germany</td>
+						<td>5000</td>
+						<td>Aktie</td>
+						<td>Harboe Vaagt</td>
+						<td>2017-05-22 15:01:46.391373</td>
+						<td>13.2</td>
+						<td>EUR</td>
+						<td>TAG Immobilien AG</td>
+					</tr>
+					<tr>
+						<td>11779.07</td>
+						<td>Germany</td>
+						<td>4991</td>
+						<td>Aktie</td>
+						<td>Hans Peter Neuroth</td>
+						<td>2017-05-22 15:01:46.391373</td>
+						<td>2.36</td>
+						<td>EUR</td>
+						<td>Scherzer & Co. Aktiengesellschaft</td>
+					</tr>
+					<tr>
+						<td>1712694.56</td>
+						<td>Germany</td>
+						<td>30562</td>
+						<td>Aktie</td>
+						<td> MV Beteiligungs GmbH</td>
+						<td>2017-05-23 15:03:20.338484</td>
+						<td>56.04</td>
+						<td>EUR</td>
+						<td>Drillisch Aktiengesellschaft</td>
+					</tr>
+					<tr>
+						<td>276958.5</td>
+						<td>Germany</td>
+						<td>45477</td>
+						<td>Aktie</td>
+						<td> Albert Bll Beteiligungsgesellschaft mbH</td>
+						<td>2017-05-29 17:58:45.288071</td>
+						<td>6.09</td>
+						<td>EUR</td>
+						<td>Capital Stage AG</td>
+					</tr>
+					<tr>
+						<td>69700</td>
+						<td>Germany</td>
+						<td>2000</td>
+						<td>Aktie</td>
+						<td>Christian Ulbrich</td>
+						<td>2017-05-29 17:58:45.288071</td>
+						<td>34.85</td>
+						<td>EUR</td>
+						<td>Vonovia SE</td>
+					</tr>
+					<tr>
+						<td>113558.35</td>
+						<td>Germany</td>
+						<td>1345</td>
+						<td>Aktie</td>
+						<td>Nicolas Peter</td>
+						<td>2017-05-29 17:58:45.288071</td>
+						<td>84.43</td>
+						<td>EUR</td>
+						<td>Bayerische Motoren Werke Aktiengesellschaft</td>
+					</tr>
+					<tr>
+						<td>85189.87</td>
+						<td>Germany</td>
+						<td>1008</td>
+						<td>Aktie</td>
+						<td>Markus Duesmann</td>
+						<td>2017-05-29 17:58:45.288071</td>
+						<td>84.43</td>
+						<td>EUR</td>
+						<td>Bayerische Motoren Werke Aktiengesellschaft</td>
+					</tr>
+					<tr>
+						<td>20192.04</td>
+						<td>Germany</td>
+						<td>660</td>
+						<td>Aktie</td>
+						<td>Barbara Ruth Albert</td>
+						<td>2017-05-29 17:58:45.288071</td>
+						<td>30.59</td>
+						<td>EUR</td>
+						<td>Evonik Industries AG</td>
+					</tr>
+					<tr>
+						<td>80750</td>
+						<td>Belgium</td>
+						<td>500</td>
+						<td>Aandeel</td>
+						<td>Mommerency Peter</td>
+						<td>2017-05-24 00:00:00</td>
+						<td>161.5</td>
+						<td>EUR</td>
+						<td>RESILUX</td>
+					</tr>
+					<tr>
+						<td>497.20000000000005</td>
+						<td>Belgium</td>
+						<td>22</td>
+						<td>Opties / warranten voor personeel of managers</td>
+						<td>Gallienne Ian</td>
+						<td>2017-05-25 00:00:00</td>
+						<td>22.6</td>
+						<td>EUR</td>
+						<td>GBL</td>
+					</tr>
+					<tr>
+						<td>25611.12</td>
+						<td>Belgium</td>
+						<td>501</td>
+						<td>Aandeel</td>
+						<td>DE DOBBELEER Jean-Thomas</td>
+						<td>2017-05-26 00:00:00</td>
+						<td>51.12</td>
+						<td>EUR</td>
+						<td>IBA</td>
+					</tr>
+					<tr>
+						<td>14478.279999999999</td>
+						<td>Belgium</td>
+						<td>283</td>
+						<td>Aandeel</td>
+						<td>DE DOBBELEER Jean-Thomas</td>
+						<td>2017-05-26 00:00:00</td>
+						<td>51.16</td>
+						<td>EUR</td>
+						<td>IBA</td>
+					</tr>
+					<tr>
+						<td>33152.992</td>
+						<td>Belgium</td>
+						<td>487.544</td>
+						<td>Aandeel</td>
+						<td>Plastiche NV</td>
+						<td>2017-05-19 00:00:00</td>
+						<td>68</td>
+						<td>EUR</td>
+						<td>KBC GROUP</td>
+					</tr>
+					<tr>
+						<td>503.5280000000001</td>
+						<td>Belgium</td>
+						<td>22.28</td>
+						<td>Opties / warranten voor personeel of managers</td>
+						<td>Lamarche Gérard</td>
+						<td>2017-05-25 00:00:00</td>
+						<td>22.6</td>
+						<td>EUR</td>
+						<td>GBL</td>
+					</tr>
+					<tr>
+						<td>8.232</td>
+						<td>Belgium</td>
+						<td>2.1</td>
+						<td>Aandeel</td>
+						<td>S.M.I. PVBA</td>
+						<td>2017-05-24 00:00:00</td>
+						<td>3.92</td>
+						<td>EUR</td>
+						<td>BANIMMO</td>
+					</tr>
+					<tr>
+						<td>16.202299999999997</td>
+						<td>Belgium</td>
+						<td>1.073</td>
+						<td>Aandeel</td>
+						<td>BUTLER INDUSTRIES BENELUX</td>
+						<td>2017-05-16 00:00:00</td>
+						<td>15.1</td>
+						<td>EUR</td>
+						<td>ECONOCOM GROUP</td>
+					</tr>
+					<tr>
+						<td>2545.27572</td>
+						<td>Belgium</td>
+						<td>169.572</td>
+						<td>Aandeel</td>
+						<td>BUTLER INDUSTRIES BENELUX</td>
+						<td>2017-05-23 00:00:00</td>
+						<td>15.01</td>
+						<td>EUR</td>
+						<td>ECONOCOM GROUP</td>
+					</tr>
+					<tr>
+						<td>96.616</td>
+						<td>Belgium</td>
+						<td>1.3</td>
+						<td>Aandeel</td>
+						<td>Doliveux Frédéric Roch</td>
+						<td>2017-05-18 00:00:00</td>
+						<td>74.32</td>
+						<td>EUR</td>
+						<td>UCB</td>
+					</tr>
+					<tr>
+						<td>276958.5</td>
+						<td>Germany</td>
+						<td>45477</td>
+						<td>Aktie</td>
+						<td> Albert Bll Beteiligungsgesellschaft mbH</td>
+						<td>2017-05-29 17:59:40.057317</td>
+						<td>6.09</td>
+						<td>EUR</td>
+						<td>Capital Stage AG</td>
+					</tr>
+					<tr>
+						<td>69700</td>
+						<td>Germany</td>
+						<td>2000</td>
+						<td>Aktie</td>
+						<td>Christian Ulbrich</td>
+						<td>2017-05-29 17:59:40.057317</td>
+						<td>34.85</td>
+						<td>EUR</td>
+						<td>Vonovia SE</td>
+					</tr>
+					<tr>
+						<td>113558.35</td>
+						<td>Germany</td>
+						<td>1345</td>
+						<td>Aktie</td>
+						<td>Nicolas Peter</td>
+						<td>2017-05-29 17:59:40.057317</td>
+						<td>84.43</td>
+						<td>EUR</td>
+						<td>Bayerische Motoren Werke Aktiengesellschaft</td>
+					</tr>
+					<tr>
+						<td>85189.87</td>
+						<td>Germany</td>
+						<td>1008</td>
+						<td>Aktie</td>
+						<td>Markus Duesmann</td>
+						<td>2017-05-29 17:59:40.057317</td>
+						<td>84.43</td>
+						<td>EUR</td>
+						<td>Bayerische Motoren Werke Aktiengesellschaft</td>
+					</tr>
+					<tr>
+						<td>20192.04</td>
+						<td>Germany</td>
+						<td>660</td>
+						<td>Aktie</td>
+						<td>Barbara Ruth Albert</td>
+						<td>2017-05-29 17:59:40.057317</td>
+						<td>30.59</td>
+						<td>EUR</td>
+						<td>Evonik Industries AG</td>
+					</tr>
+					<tr>
+						<td>239.6</td>
+						<td>Belgium</td>
+						<td>4</td>
+						<td>Aandeel</td>
+						<td>Machtelinckx Luc Robert J</td>
+						<td>2017-06-02 00:00:00</td>
+						<td>59.9</td>
+						<td>EUR</td>
+						<td>TELENET GROUP HOLDING</td>
+					</tr>
+					<tr>
+						<td>449.25</td>
+						<td>Belgium</td>
+						<td>7.5</td>
+						<td>Aandeel</td>
+						<td>Bronselaer Jeroen</td>
+						<td>2017-06-02 00:00:00</td>
+						<td>59.9</td>
+						<td>EUR</td>
+						<td>TELENET GROUP HOLDING</td>
+					</tr>
+					<tr>
+						<td>1087.8</td>
+						<td>Belgium</td>
+						<td>140</td>
+						<td>Aandeel</td>
+						<td>BUTLER INDUSTRIES BENELUX</td>
+						<td>2017-06-01 00:00:00</td>
+						<td>7.77</td>
+						<td>EUR</td>
+						<td>ECONOCOM GROUP</td>
+					</tr>
+					<tr>
+						<td>69.2765</td>
+						<td>Belgium</td>
+						<td>17.45</td>
+						<td>Aandeel</td>
+						<td>S.M.I. PVBA</td>
+						<td>2017-06-02 00:00:00</td>
+						<td>3.97</td>
+						<td>EUR</td>
+						<td>BANIMMO</td>
+					</tr>
+					<tr>
+						<td>1230</td>
+						<td>Belgium</td>
+						<td>20</td>
+						<td>Aandeel</td>
+						<td>Grynberg Marc</td>
+						<td>2017-06-02 00:00:00</td>
+						<td>61.5</td>
+						<td>EUR</td>
+						<td>UMICORE</td>
+					</tr>
+					<tr>
+						<td>29975</td>
+						<td>Belgium</td>
+						<td>500</td>
+						<td>Aandeel</td>
+						<td>Van Medegael Paul</td>
+						<td>2017-06-02 00:00:00</td>
+						<td>59.95</td>
+						<td>EUR</td>
+						<td>TELENET GROUP HOLDING</td>
+					</tr>
+					<tr>
+						<td>770</td>
+						<td>Belgium</td>
+						<td>100</td>
+						<td>Aandeel</td>
+						<td>BUTLER INDUSTRIES BENELUX</td>
+						<td>2017-06-05 00:00:00</td>
+						<td>7.7</td>
+						<td>EUR</td>
+						<td>ECONOCOM GROUP</td>
+					</tr>
+					<tr>
+						<td>1176.4965000000002</td>
+						<td>Belgium</td>
+						<td>151.806</td>
+						<td>Aandeel</td>
+						<td>BUTLER INDUSTRIES BENELUX</td>
+						<td>2017-06-02 00:00:00</td>
+						<td>7.75</td>
+						<td>EUR</td>
+						<td>ECONOCOM GROUP</td>
+					</tr>
+					<tr>
+						<td>157.67</td>
+						<td>Belgium</td>
+						<td>1</td>
+						<td>Aandeel</td>
+						<td>Mommerency Peter</td>
+						<td>2017-06-01 00:00:00</td>
+						<td>157.67</td>
+						<td>EUR</td>
+						<td>RESILUX</td>
+					</tr>
+					<tr>
+						<td>299.54999999999995</td>
+						<td>Belgium</td>
+						<td>5</td>
+						<td>Aandeel</td>
+						<td>Nieuwdorp Dieter Hans E.</td>
+						<td>2017-06-02 00:00:00</td>
+						<td>59.91</td>
+						<td>EUR</td>
+						<td>TELENET GROUP HOLDING</td>
+					</tr>
+					<tr>
+						<td>307.2</td>
+						<td>Belgium</td>
+						<td>40</td>
+						<td>Aandeel</td>
+						<td>di benedetto veronique </td>
+						<td>2017-06-02 00:00:00</td>
+						<td>7.68</td>
+						<td>EUR</td>
+						<td>ECONOCOM GROUP</td>
+					</tr>
+					<tr>
+						<td>128.4</td>
+						<td>Belgium</td>
+						<td>4</td>
+						<td>Aandeel</td>
+						<td>Lambrecht Xavier</td>
+						<td>2017-06-01 00:00:00</td>
+						<td>32.1</td>
+						<td>EUR</td>
+						<td>ONTEX</td>
+					</tr>
+				</tbody>
+			</table>
       </div>
     </div>
 
@@ -259,10 +614,4 @@
       <div class="container"> Copyright by Followtheinsiders.com © 2017. All Rights Reserved.</div>
     </div>
   </footer>
-  
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
-  </script>
 </html>
