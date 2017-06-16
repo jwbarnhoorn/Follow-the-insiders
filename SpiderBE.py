@@ -79,7 +79,7 @@ for link in New_links:
     Soort_transactie = soup.find('span', text='Soort transactie').findNext('span').getText()
 
     #Check whether insider transaction conditions are met and if so store in database
-    if Totale_waarde > 10000 and not "Verkoop" or "Vervreemding" in Soort_transactie and "aandeel" or "stock" in Soort_effect:
+    if Totale_waarde > 10000 and (not "Verkoop" or "Vervreemding" in Soort_transactie) and ("aandeel" or "stock" in Soort_effect):
                # INSERT the new record into the database.
                c.execute("INSERT INTO relevant_transactions VALUES(?,?,?,?,?,?,?,?,?)",(Datum_meldingsplicht,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Belgium'))
                conn.commit()
