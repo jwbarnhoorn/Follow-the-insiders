@@ -5,7 +5,7 @@ import datetime
 import locale
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'nl_NL') #nl_NL in linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
+locale.setlocale(locale.LC_ALL,'Dutch_Netherlands.1252') #nl_NL in linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
 
 #Open DB connection
 conn = sqlite3.connect('insider_transactions.db', timeout=10)
@@ -25,7 +25,7 @@ Old_links = [item[0] for item in c.fetchall()]
 print("No. of old links: "+str(len(Old_links)))
 #2 get links of today
 r=requests.get(url, headers=headers)
-soup = BeautifulSoup(r.content, "html.parser")
+soup = BeautifulSoup(r.text, "html.parser")
 Found_tags = soup.find('div', class_='results-overview-register registerColCount3').find_all('a')
 
 for tag in Found_tags:
@@ -46,7 +46,7 @@ print("No. of new links: "+str(len(New_links)))
 insider_transactions = 0
 for link in New_links:  
     r=requests.get(link, headers=headers)
-    soup = BeautifulSoup(r.content, "html.parser")
+    soup = BeautifulSoup(r.text, "html.parser")
 
     #Fetch general information
     General_info = soup.find('section', class_='centergrid registerDetail').find_all('span')
@@ -55,7 +55,7 @@ for link in New_links:
     Meldingsplichtige = str(General_info[3].getText())
 
     #Fetch data from table   
-    soup = BeautifulSoup(r.content, "html.parser")
+    soup = BeautifulSoup(r.text, "html.parser")
     spantags = soup.find_all('span')
     for tag in spantags:
         tag.extract()

@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import locale
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'nl_NL') #nl_NL for Linux.
+locale.setlocale(locale.LC_ALL,'Dutch_Netherlands.1252') #nl_NL for Linux.
 
 #Open DB connection
 conn = sqlite3.connect('insider_transactions.db', timeout=10)
@@ -26,7 +26,7 @@ yesterday = str(yesterday_dt)
             
 #Get new links of today
 r=requests.get(url, headers=headers)
-soup = BeautifulSoup(r.content, "html.parser")
+soup = BeautifulSoup(r.text, "html.parser")
 
 All_links = soup.find('tbody').find_all('a')
 All_dates = soup.find('tbody').find_all('span', class_ = 'date-display-single')
@@ -44,7 +44,7 @@ insider_transactions = 0
 Datum_meldingsplicht = yesterday_dt
 for link in New_links:  
     r=requests.get(link, headers=headers)
-    soup = BeautifulSoup(r.content, "html.parser")
+    soup = BeautifulSoup(r.text, "html.parser")
     info = soup.find('div', class_ = 'ds-1col node node-manager-transactions node-view-full node-manager-transactions-full view-mode-full clearfix').find_all('div', class_ = 'field-item even')
     #Fetch information  
     Meldingsplichtige = info[1].getText()
