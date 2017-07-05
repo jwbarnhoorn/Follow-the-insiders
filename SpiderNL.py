@@ -5,7 +5,7 @@ import datetime
 import locale
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'nl_NL') #nl_NL in linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
+locale.setlocale(locale.LC_ALL,'Dutch_Netherlands.1252') #nl_NL.UTF-8 in linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
 
 #Open DB connection
 conn = sqlite3.connect('insider_transactions.db', timeout=10)

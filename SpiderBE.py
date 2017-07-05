@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import locale
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'nl_NL') #nl_NL for Linux.
+locale.setlocale(locale.LC_ALL,'Dutch_Netherlands.1252') #nl_NL.UTF-8 for Linux.
 
 #Open DB connection
 conn = sqlite3.connect('insider_transactions.db', timeout=10)
@@ -53,9 +53,9 @@ for link in New_links:
     Waarde_per_aandeel = info[10].getText()
     Waarde_per_aandeel = Waarde_per_aandeel.strip()
     Waarde_per_aandeel = float(Waarde_per_aandeel.replace('.','').replace(',','.'))
-    Aantal_effecten = info[9].getText()
-    Aantal_effecten = Aantal_effecten.strip()
-    Aantal_effecten = int(Aantal_effecten.replace('.',''))
+    Aantal_effecten = info[10].getText()
+    Aantal_effecten = Aantal_effecten.strip()   
+    Aantal_effecten = float(Aantal_effecten.replace('.','').replace(',','.'))
     Totale_waarde = info[11].getText()
     Totale_waarde = Totale_waarde.strip()
     Totale_waarde = float(Totale_waarde.replace('.','').replace(',','.'))

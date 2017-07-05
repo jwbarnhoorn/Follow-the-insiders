@@ -1,11 +1,11 @@
 from bs4 import BeautifulSoup   
-from urllib2 import urlopen
+from urllib.request import urlopen
 import sqlite3
 from datetime import datetime, timedelta
 import locale
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'de_DE') #find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
+locale.setlocale(locale.LC_ALL,'German_Germany.1252') #de_DE.UTF-8 for Linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
 
 #Open DB connection
 conn = sqlite3.connect('insider_transactions.db', timeout=10)
@@ -114,4 +114,3 @@ for link in New_links:
 #Close DB
 conn.commit()     
 conn.close()
-
