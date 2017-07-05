@@ -6,10 +6,10 @@ from datetime import datetime, timedelta
 import locale
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'Dutch_Netherlands.1252') #nl_NL.UTF-8 for Linux.
+locale.setlocale(locale.LC_ALL,'nl_NL.UTF-8') #nl_NL.UTF-8 for Linux.
 
 #Open DB connection
-conn = sqlite3.connect('insider_transactions.db', timeout=10)
+conn = sqlite3.connect('/home/ec2-user/data/insider_transactions.db', timeout=10)
 c = conn.cursor()
 
 #define some attributes
