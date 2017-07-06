@@ -1,9 +1,13 @@
-# coding=utf-8
 from bs4 import BeautifulSoup   
 import requests
 import sqlite3
 from datetime import datetime, timedelta
 import locale
+
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 #Set local time to NL to parse date correctly.
 locale.setlocale(locale.LC_ALL,'nl_NL.UTF-8') #nl_NL.UTF-8 for Linux.
