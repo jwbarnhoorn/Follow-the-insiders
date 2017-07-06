@@ -8,7 +8,7 @@ import locale
 locale.setlocale(locale.LC_ALL,'nl_NL.UTF-8') #nl_NL.UTF-8 in linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
 
 #Open DB connection
-conn = sqlite3.connect('/home/ec2user/data/insider_transactions.db', timeout=10)
+conn = sqlite3.connect('/home/ec2-user/data/insider_transactions.db', timeout=10)
 c = conn.cursor()
 
 #define some attributes
