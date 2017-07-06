@@ -4,6 +4,11 @@ import sqlite3
 import datetime
 import locale
 
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 #Set local time to NL to parse date correctly.
 locale.setlocale(locale.LC_ALL,'nl_NL.UTF-8') #nl_NL.UTF-8 in linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
 
