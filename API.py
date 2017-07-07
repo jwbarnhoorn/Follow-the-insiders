@@ -15,7 +15,7 @@ class index:
 
 class transactions:
     def GET(self):
-        db = web.database(dbn='sqlite', db='home/ec2-user/data/insider_transactions.db')
+        db = web.database(dbn='sqlite', db='////home/ec2-user/data/insider_transactions.db')
         #Create dict to prevent SQL injection attack and store time of today minus 30 days.
         LatestDate = datetime.now() - timedelta(days=30)
         vars = {"key":LatestDate}
