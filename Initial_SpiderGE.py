@@ -10,7 +10,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'German_Germany.1252') #de_DE.UTF-8 for Linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
+locale.setlocale(locale.LC_ALL,'de_DE.UTF-8') #de_DE.UTF-8 for Linux. find correct localWin value at: https://docs.moodle.org/dev/Table_of_locales
 
 #Open DB connection
 conn = sqlite3.connect('/home/ec2-user/data/insider_transactions.db', timeout=10)
