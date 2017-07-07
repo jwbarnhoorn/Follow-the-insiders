@@ -45,7 +45,6 @@ print("No. of new links found: "+str(len(New_links)))
 
 #For all new links: spider the url and check if new insider transaction is found
 insider_transactions = 0
-Datum_meldingsplicht = yesterday_dt
 for link in New_links:  
     r=requests.get(link, headers=headers)
     soup = BeautifulSoup(r.text, "html.parser")
@@ -71,7 +70,7 @@ for link in New_links:
         if ("Aankoop" or "Verwerving") in Soort_transactie:
             if ("Aandeel" or "Stock") in Soort_effect:
                 # INSERT the new record into the database.
-                c.execute("INSERT INTO relevant_transactions VALUES(?,?,?,?,?,?,?,?,?)",(Datum_meldingsplicht,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Belgium'))
+                c.execute("INSERT INTO relevant_transactions VALUES(?,?,?,?,?,?,?,?,?)",(today,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Belgium'))
                 conn.commit()
                 # Add counter
                 insider_transactions += 1
