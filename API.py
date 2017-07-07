@@ -22,10 +22,10 @@ class transactions:
         #Query DB and get all transactions 
         transactions = db.select('relevant_transactions', where='Filing_date > $key', vars=vars)   
         transactions = [ dict(entry) for entry in transactions ]   
-        
+        """
         for item in transactions:
             item['Total_value'] = numbers.format_currency(item['Total_value'],item['Currency'])   
-        
+        """
         return json.dumps(transactions)
 
 if __name__ == "__main__": 
