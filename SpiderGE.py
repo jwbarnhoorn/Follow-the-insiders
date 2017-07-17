@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup   
-from urllib2 import urlopen
+import requests
 import sqlite3
 from datetime import datetime, timedelta
 import locale
@@ -27,21 +27,19 @@ Urls.append("https://portal.mvp.bafin.de/database/DealingsInfo/sucheForm.do?d-40
 New_links = list() 
 New_entries = list()
 Base_url = 'https://portal.mvp.bafin.de/database/DealingsInfo/'
+headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'}
             
 #Get date of yesterday in correct format
 today = datetime.now()
 yesterday = today - timedelta(days=1)
 yesterday = yesterday.strftime('%d.%m.%Y')
 yesterday = str(yesterday)
+
 #Check whether there are new entries of yesterday
 for url in Urls:
-    u = urlopen(url)
-    try:
-        html = u.read().decode('utf-8', errors='ignore')
-    finally:
-        u.close()
-    
-    soup = BeautifulSoup(html, "html.parser")
+    r=requests.get(url, headers=headers)
+    soup = BeautifulSoup(r.text, "html.parser")
+
     all_entries = soup.find('tbody').find_all('td')
     all_links = soup.find('tbody').find_all('a')
 
@@ -58,25 +56,16 @@ print("No. of new entries found: "+str(len(New_entries)))
 
 #Get all the target links from the new entries      
 for entry in New_entries:
-    u = urlopen(entry)
-    try:
-        html = u.read().decode('utf-8', errors='ignore')
-    finally:
-        u.close()
-    
-    soup = BeautifulSoup(html, "html.parser")
+    r=requests.get(entry, headers=headers)
+    soup = BeautifulSoup(r.text, "html.parser")
+
     link = soup.find('tbody').findNext('a').get('href')
     New_links.append(Base_url+ link)       
  
 #Parse the new links and write to DB if appropriate.         
 for link in New_links:
-    u = urlopen(link)
-    try:
-        html = u.read().decode('utf-8', errors='ignore')
-    finally:
-        u.close()
-
-    soup = BeautifulSoup(html, "html.parser")    
+    r=requests.get(link, headers=headers)
+    soup = BeautifulSoup(r.text, "html.parser")
 
     Date = today - timedelta(days=1)
     Vorname = soup.find('td', text="Vorname:").findNext('td').getText()
