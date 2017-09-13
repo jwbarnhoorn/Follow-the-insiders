@@ -28,6 +28,11 @@ class transactions:
         
         return json.dumps(transactions)
 
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 if __name__ == "__main__": 
     app = web.application(urls, globals(), True)
     app.run() 
