@@ -24,7 +24,7 @@ class transactions:
         transactions = [ dict(entry) for entry in transactions ]
         
         for item in transactions:
-            item['Total_value'] = int(float(item['Total_value']))
+            item['Total_value'] = float(item['Total_value'])
             item['Total_value'] = numbers.format_currency(item['Total_value'],item['Currency'], locale='en_US')   
         
         return json.dumps(transactions)
