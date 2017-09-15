@@ -2,7 +2,11 @@ import web
 import json
 from datetime import datetime, timedelta
 from babel import numbers
-coding: utf-8
+
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 urls = (
         "/", "index",
