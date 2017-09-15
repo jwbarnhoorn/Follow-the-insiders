@@ -27,6 +27,7 @@ class transactions:
             item['Total_value'] = float(item['Total_value'])
             item['Total_value'] = numbers.format_currency(item['Total_value'],item['Currency'], locale='en_US')   
         
+        transactions = sorted(transactions, key=lambda date: transactions['Filing_date'])
         return json.dumps(transactions)
 
 if __name__ == "__main__": 
