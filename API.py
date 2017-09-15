@@ -24,14 +24,9 @@ class transactions:
         transactions = [ dict(entry) for entry in transactions ]   
         
         for item in transactions:
-            item['Total_value'] = numbers.format_currency(item['Total_value'],item['Currency'])   
+            item['Total_value'] = numbers.format_currency(item['Total_value'],item['Currency'], locale='es_US')   
         
         return json.dumps(transactions)
-
-# encoding=utf8
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
 
 if __name__ == "__main__": 
     app = web.application(urls, globals(), True)
