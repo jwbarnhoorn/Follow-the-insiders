@@ -25,7 +25,7 @@ class transactions:
         
         for item in transactions:
             item['Total_value'] = float(item['Total_value'])
-            item['Filing_date'] = datetime.strptime(item['Filing_date'], '%Y-%m-%d %R:%M:%s')
+            item['Filing_date'] = datetime.strptime(item['Filing_date'], '%Y-%m-%d %H:%M:%S')
             item['Total_value'] = numbers.format_currency(item['Total_value'],item['Currency'], locale='en_US')   
         
         return json.dumps(transactions)
