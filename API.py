@@ -2,7 +2,7 @@ import web
 import json
 from datetime import datetime, timedelta
 from babel import numbers
-# -*- coding: utf-8 -*-
+coding: utf-8
 
 urls = (
         "/", "index",
