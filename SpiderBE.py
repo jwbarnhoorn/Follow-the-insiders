@@ -48,7 +48,7 @@ insider_transactions = 0
 for link in New_links:  
     r=requests.get(link, headers=headers)
     soup = BeautifulSoup(r.text, "html.parser")
-    info = soup.find('div', class_ = 'ds-1col node node-manager-transactions node-view-full node-manager-transactions-full view-mode-full clearfix').find_all('div', class_ = 'field-item even')
+    info = soup.find('div', class_ = 'ds-1col node node-manager-transactions node-view-full node-manager-transactions-full view-mode-full clearfix').find_all('div', class_ = 'field-item')
     #Fetch information  
     Meldingsplichtige = info[1].getText()
     Uitgevende_instelling = info[3].getText()
