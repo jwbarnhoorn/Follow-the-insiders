@@ -58,10 +58,10 @@ print("No. of new entries found: "+str(len(New_entries)))
 for entry in New_entries:
     r=requests.get(entry, headers=headers)
     soup = BeautifulSoup(r.text, "html.parser")
-
     link = soup.find('tbody').findNext('a').get('href')
     New_links.append(Base_url+ link)       
- 
+
+print("No. of new links found: "+str(len(New_links)))
 #Parse the new links and write to DB if appropriate.         
 for link in New_links:
     r=requests.get(link, headers=headers)
@@ -102,9 +102,9 @@ for link in New_links:
         Transaction == "Kauf" and \
         "Aktie" or "stock" in Soort_effect:
             # INSERT the new record into the database.
-               c.execute("INSERT INTO relevant_transactions VALUES(?,?,?,?,?,?,?,?,?)",(Date,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Germany'))
-               conn.commit()
-
+            T6 = Date + timedelta(weeks=26)
+            c.execute("INSERT INTO relevant_transactions (Filing_date, Insider_name, Issuer, Security_type, Price_security, Security_amount, Total_value, Currency, Country, T6) VALUES(?,?,?,?,?,?,?,?,?)",(Date,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Germany',T6))
+            conn.commit()
 #Close DB
 conn.commit()     
 conn.close()
