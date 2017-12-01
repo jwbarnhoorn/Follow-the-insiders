@@ -11,7 +11,7 @@ c.execute("SELECT DISTINCT Filing_date FROM relevant_transactions")
 Dates = [item[0] for item in c.fetchall()] 
 
 for i in range(0,len(Dates)):
-        Corrected_date = datetime.strptime(Dates[i][:11], '%Y-%m-%d').date()
+        Corrected_date = datetime.strptime(Dates[i][:10], '%Y-%m-%d').date()
         c.execute("UPDATE relevant_transactions SET Filing_date = ? WHERE Filing_date = ?",(Corrected_date,Dates[i],))
         conn.commit()
 
