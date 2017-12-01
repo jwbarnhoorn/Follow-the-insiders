@@ -56,7 +56,7 @@ for link in New_links:
     #Fetch general information
     General_info = soup.find('section', class_='centergrid registerDetail').find_all('span')
     Datum_meldingsplicht = str(General_info[1].getText())
-    Datum_meldingsplicht = datetime.datetime.strptime(Datum_meldingsplicht,"%d %b %Y")
+    Datum_meldingsplicht = datetime.datetime.strptime(Datum_meldingsplicht,"%d %b %Y").date()
     Meldingsplichtige = str(General_info[3].getText())
 
     #Fetch data from table   
