@@ -56,7 +56,7 @@ for link in New_links:
     Waarde_per_aandeel = info[10].getText()
     Waarde_per_aandeel = Waarde_per_aandeel.strip()
     Waarde_per_aandeel = float(Waarde_per_aandeel.replace('.','').replace(',','.'))
-    Aantal_effecten = info[10].getText()
+    Aantal_effecten = info[9].getText()
     Aantal_effecten = Aantal_effecten.strip()   
     Aantal_effecten = float(Aantal_effecten.replace('.','').replace(',','.'))
     Totale_waarde = info[11].getText()
