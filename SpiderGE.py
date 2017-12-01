@@ -68,6 +68,7 @@ for link in New_links:
     soup = BeautifulSoup(r.text, "html.parser")
 
     Date = today - timedelta(days=1)
+    Date = Date.date()
     Vorname = soup.find('td', text="Vorname:").findNext('td').getText()
     Nachname = soup.find('td', text="Nachname:").findNext('td').getText()
     Meldingsplichtige = Vorname + ' ' + Nachname
