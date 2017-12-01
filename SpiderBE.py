@@ -25,7 +25,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KH
 #Get date of yesterday in correct format
 today = datetime.now()
 yesterday = today - timedelta(days=1)
-yesterday_dt = yesterday.strftime('%d/%m/%Y')
+yesterday_dt = yesterday.strftime('%d/%m/%Y').date()
 yesterday = str(yesterday_dt)
             
 #Get new links of today
@@ -70,8 +70,8 @@ for link in New_links:
         if ("Aankoop" or "Verwerving") in Soort_transactie:
             if ("Aandeel" or "Stock") in Soort_effect:
                 # INSERT the new record into the database.
-                T6 = today + timedelta(weeks=26)
-                c.execute("INSERT INTO relevant_transactions (Filing_date, Insider_name, Issuer, Security_type, Price_security, Security_amount, Total_value, Currency, Country, T6) VALUES(?,?,?,?,?,?,?,?,?)",(today,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Belgium',T6))
+                T6 = yesterday + timedelta(weeks=26)
+                c.execute("INSERT INTO relevant_transactions (Filing_date, Insider_name, Issuer, Security_type, Price_security, Security_amount, Total_value, Currency, Country, T6) VALUES(?,?,?,?,?,?,?,?,?)",(yesterday,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Belgium',T6))
                 conn.commit()
                 # Add counter
                 insider_transactions += 1
