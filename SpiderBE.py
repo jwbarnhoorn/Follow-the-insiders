@@ -23,9 +23,9 @@ New_links = list()
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'}
 
 #Get date of yesterday in correct format
-today = datetime.now()
+today = datetime.now().date()
 yesterday = today - timedelta(days=1)
-yesterday_dt = yesterday.strftime('%d/%m/%Y').date()
+yesterday_dt = yesterday.strftime('%d/%m/%Y')
 yesterday = str(yesterday_dt)
             
 #Get new links of today
