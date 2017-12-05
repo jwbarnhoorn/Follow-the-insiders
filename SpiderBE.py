@@ -10,7 +10,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 #Set local time to NL to parse date correctly.
-locale.setlocale(locale.LC_ALL,'nl_NL.UTF-8') #nl_NL.UTF-8 for Linux.
+locale.setlocale(locale.LC_ALL,'nl_NL.UTF-8') #nl_NL.UTF-8 for Linux / Dutch_Netherlands.1252 for Windows
 
 #Open DB connection
 conn = sqlite3.connect('/home/ec2-user/data/insider_transactions.db', timeout=10)
@@ -48,22 +48,22 @@ insider_transactions = 0
 for link in New_links:  
     r=requests.get(link, headers=headers)
     soup = BeautifulSoup(r.text, "html.parser")
-    info = soup.find('div', class_ = 'ds-1col node node-manager-transactions node-view-full node-manager-transactions-full view-mode-full clearfix').find_all('div', class_ = 'field-item')
+    soup = soup.find('div', class_ = 'ds-1col node node-manager-transactions node-view-full node-manager-transactions-full view-mode-full clearfix') 
     #Fetch information  
-    Meldingsplichtige = info[1].getText()
-    Uitgevende_instelling = info[3].getText()
-    Soort_effect = info[4].getText()
-    Waarde_per_aandeel = info[10].getText()
+    Meldingsplichtige = soup.find(text='Naam meldplichtige').findNext('div').getText()
+    Uitgevende_instelling = soup.find(text='Emittent').findNext('div').getText()
+    Soort_effect = soup.find(text='Soort financieel instrument').findNext('div').getText()
+    Waarde_per_aandeel = soup.find(text='Prijs').findNext('div').getText()
     Waarde_per_aandeel = Waarde_per_aandeel.strip()
     Waarde_per_aandeel = float(Waarde_per_aandeel.replace('.','').replace(',','.'))
-    Aantal_effecten = info[9].getText()
+    Aantal_effecten = soup.find(text='Prijs').findNext('div').getText()
     Aantal_effecten = Aantal_effecten.strip()   
     Aantal_effecten = float(Aantal_effecten.replace('.','').replace(',','.'))
-    Totale_waarde = info[11].getText()
+    Totale_waarde = soup.find(text='Totaal bedrag').findNext('div').getText()
     Totale_waarde = Totale_waarde.strip()
     Totale_waarde = float(Totale_waarde.replace('.','').replace(',','.'))
-    Valuta = info[8].getText()  
-    Soort_transactie = info[5].getText()
+    Valuta = soup.find(text='Munt').findNext('div').getText() 
+    Soort_transactie = soup.find(text='Soort transactie').findNext('div').getText()
 
     #Check whether insider transaction conditions are met and if so store in database
     if Totale_waarde > 10000:
