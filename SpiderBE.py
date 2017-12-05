@@ -70,7 +70,7 @@ for link in New_links:
         if ("Aankoop" or "Verwerving") in Soort_transactie:
             if ("Aandeel" or "Stock") in Soort_effect:
                 # INSERT the new record into the database.
-                T6 = yesterday + timedelta(weeks=26)
+                T6 = today - timedelta(days=1) + timedelta(weeks=26)
                 c.execute("INSERT INTO relevant_transactions (Filing_date, Insider_name, Issuer, Security_type, Price_security, Security_amount, Total_value, Currency, Country, T6) VALUES(?,?,?,?,?,?,?,?,?)",(yesterday,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Belgium',T6))
                 conn.commit()
                 # Add counter
