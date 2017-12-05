@@ -104,7 +104,7 @@ for link in New_links:
         "Aktie" or "stock" in Soort_effect:
             # INSERT the new record into the database.
             T6 = Date + timedelta(weeks=26)
-            c.execute("INSERT INTO relevant_transactions (Filing_date, Insider_name, Issuer, Security_type, Price_security, Security_amount, Total_value, Currency, Country, T6) VALUES(?,?,?,?,?,?,?,?,?)",(Date,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Germany',T6))
+            c.execute("INSERT INTO relevant_transactions (Filing_date, Insider_name, Issuer, Security_type, Price_security, Security_amount, Total_value, Currency, Country, T6) VALUES(?,?,?,?,?,?,?,?,?,?)",(Date,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Germany',T6))
             conn.commit()
 #Close DB
 conn.commit()     
