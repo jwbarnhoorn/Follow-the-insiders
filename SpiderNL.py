@@ -91,7 +91,7 @@ for link in New_links:
             if "Nee" in Vrije_hand_beheer:
                 if ("aandeel" or "stock" or "Aandeel" or "Stock") in Soort_effect:
                     # INSERT the new record into the database.
-                    T6 = today + timedelta(weeks=26)
+                    T6 = Datum_meldingsplicht + timedelta(weeks=26)
                     c.execute("INSERT INTO relevant_transactions (Filing_date, Insider_name, Issuer, Security_type, Price_security, Security_amount, Total_value, Currency, Country, T6) VALUES(?,?,?,?,?,?,?,?,?,?)",(Datum_meldingsplicht,Meldingsplichtige,Uitgevende_instelling,Soort_effect,Waarde_per_aandeel,Aantal_effecten,Totale_waarde,Valuta,'Netherlands',T6))
                     conn.commit()
                     # Add counter
