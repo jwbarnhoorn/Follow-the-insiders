@@ -51,7 +51,7 @@ for link in New_links:
     soup = BeautifulSoup(r.text, "html.parser")
     soup = soup.find('div', class_ = 'ds-1col node node-manager-transactions node-view-full node-manager-transactions-full view-mode-full clearfix') 
     #Fetch information  
-    Meldingsplichtige = soup.find(text='Titel').findNext('div').getText()
+    Meldingsplichtige = soup.find(text='Naam meldplichtige').findNext('div').findNext('div').getText()
     Uitgevende_instelling = soup.find(text='Emittent').findNext('div').getText()
     Soort_effect = soup.find(text='Soort financieel instrument').findNext('div').getText()
     Waarde_per_aandeel = soup.find(text='Prijs').findNext('div').getText()
